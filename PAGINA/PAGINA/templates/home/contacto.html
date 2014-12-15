@@ -1,0 +1,35 @@
+
+{% extends 'base.html' %}
+{% block title %} CONTACTO {% endblock %}
+
+{% block content %} 
+
+<br> 
+{% if info_enviado %}
+	Gracias por enviar
+	<br>
+	<p>El Hashtag:  {{hashtag}}</p>
+
+	{% for p in tweets %}
+		{% if p.tipo_Tweet%}
+			<p> LOS TWEETS POSITIVOS RELACIONADOS AL HASHTAG SON </p>
+			<p><a href="/about/{{p.id_Tweet}}">{{p.texto}}</a></p>
+			<p>Hecho por: <br> {{p.id_Cuenta.nombre_cuenta}} </p>
+		-----------------------------------------------------------------------------------------
+		{% else %}
+			<p>.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.
+			<p> LOS TWEETS NEGATIVOS RELACIONADOS AL HASHTAG SON </p>
+			<p><a href="/about/{{p.id_Tweet}}">{{p.texto}}</a></p>>
+			<p>Hecho por: <br> {{p.id_Cuenta.nombre_cuenta}} </p>
+		{% endif %}
+	{% endfor%}
+
+{% else %}
+	<form action ="." method="POST">
+		{% csrf_token %}
+		{{form.as_p}}
+		<input type="submit" value="submit"/>
+	</form>
+{% endif %}
+
+{% endblock %}

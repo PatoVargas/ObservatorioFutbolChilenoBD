@@ -1,0 +1,17 @@
+
+{% extends 'base.html' %}
+{% block title %} TWEETS ESPECIFICACION {% endblock %}
+{% block content %} <br>
+
+<h1> El Tweet: </h1>
+<p>{{ tweet.texto }}</p>
+
+Tiene:<br><br>
+
+RT: {{ tweet.retweet }} <br> 
+FAV: {{ tweet.favoritos }}
+<br><br>
+
+<a href='/about'> Volver </a>
+
+{% endblock %}

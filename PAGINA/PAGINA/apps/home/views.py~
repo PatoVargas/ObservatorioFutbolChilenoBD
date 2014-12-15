@@ -1,0 +1,30 @@
+from django.shortcuts import render_to_response
+from django.template import RequestContext
+from PAGINA.apps.pagina.models import Cuenta
+from PAGINA.apps.home.forms import ContactForm
+
+def index_view(request):
+	return render_to_response('home/index.html',context_instance=RequestContext(request))
+
+def about_view(request):
+        return render_to_response('home/about.html',context_instance=RequestContext(request))
+
+def cuentas_view(request):
+	cuentas = Cuenta.objects.filter(tipo_Cuenta=False) 
+	ctx = {'cuentas':cuentas}
+	return render_to_response('home/cuenta.html',ctx,context_instance=RequestContext(request))
+
+
+def contacto_view(request):
+	info_enviado = False
+	nombrecuenta = ""
+	if request.method == "POST":
+		formulario = ContactForm(request.POST)
+		if formulario.is_valid():
+			info_enviado = True
+			nombrecuenta = formulario.cleaned_data['Nombre'] 
+	else:		
+		formulario = ContactForm()
+	ctx = {'form':formulario,'nombre':nombrecuenta,'info_enviado':info_enviado}
+	return render_to_response('home/contacto.html',ctx,context_instance=RequestContext(request))
+

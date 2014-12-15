@@ -1,0 +1,17 @@
+<html>
+<head><title>Ventana de Contacto</title></head>
+<body>
+{% if info_enviado %}
+
+
+{% else %}
+<form action ="." method="POST">
+{% csrf_token %}
+{{form.as_p}}
+<input type="submit" value="submit"/>
+</form>
+{
+	z}
+
+</body>
+</html>

@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block title %} INICIO {% endblock %}
+{% block content %} <br> 
+<br><br> 
+Los Tweets mas populares son: <br>
+
+{% for p in tweets %}
+		{% if p.retweet > 1000 or p.favoritos > 1000 %}
+			
+			<p>{{p.texto}}<br>	RT: {{p.retweet}}	FV: {{p.favoritos}} Cuenta <br> {{p.id_Cuenta.nombre_cuenta}}</p> 
+
+			----------------------------------------------------------------------------------------------------------
+		{% endif %}
+
+{% endfor %}
+
+<br><br> 
+{% endblock %}
+

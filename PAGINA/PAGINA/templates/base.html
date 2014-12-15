@@ -1,0 +1,31 @@
+<!DOCTYPE HTML>
+<HTML>
+<HEAD>
+
+	<TITLE>{% block title %} PAGINA PRINCIPAL {% endblock %}</TITLE>
+	{% block css %}<link rel="stylesheet" href="/media/css/estilo.css">{% endblock %}	
+</HEAD>
+
+<BODY>
+<HEADER>
+	<img src="/media/images/pelota.jpeg"/>
+	<H1> Observatorio Futbolistas Chilenos </H1>
+	<NAV>
+		<a href="{% url 'vista_principal' %}">Inicio</a>
+		<a href="{% url 'vista_cuenta' %}">Cuentas</a>
+		<a href="{% url 'vista_contacto' %}">Hashtag</a>
+		<a href="{% url 'vista_about' %}">TWEETS</a>	
+		<a href="{% url 'vista_fechas' %}">FECHAS</a>
+
+	</NAV>
+</HEADER>
+<SECTION>
+	{% block content %}
+		
+	{% endblock %}
+</SECTION>
+</BODY>
+
+<h4>Patricio Vargas - Gerson Aguirre - Manuel Arellano</h4>
+<h4>Desarrollada en DJANGO y POSTGRESQL</h4>
+</HTML>

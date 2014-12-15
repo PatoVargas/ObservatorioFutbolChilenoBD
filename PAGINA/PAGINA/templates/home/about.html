@@ -1,0 +1,30 @@
+
+{% extends 'base.html' %}
+{% block title %} TWEETS{% endblock %}
+{% block content %} <br>
+
+<h1>Estas son los tweet ordenados por fecha</h1>
+
+{% if tweets %}
+	<h2>Tweets Positivos</h2>	
+	{% for p in tweets %}
+		<p>{{p.fecha}}</p>
+		<p><a href="/about/{{p.id_Tweet}}">{{p.texto}}</a></p>
+		<p>Hecho por: <br> {{p.id_Cuenta.nombre_cuenta}} </p>
+		----------------------------------------------
+	{% endfor %}
+
+	<h2>Tweets Negativos</h2>	
+	{% for p in tweets2 %}
+		<p>{{p.fecha}}</p>
+		<p><a href="/about/{{p.id_Tweet}}">{{p.texto}}</a></p>
+		<p>Hecho por: <br> {{p.id_Cuenta.nombre_cuenta}} </p>
+		----------------------------------------------
+	{% endfor %}
+
+{% else %}
+	<h3>No hay Tweets </h3>
+
+{% endif %}
+
+{% endblock %}

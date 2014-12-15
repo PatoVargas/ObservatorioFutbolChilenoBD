@@ -1,0 +1,6 @@
+from models import Cuenta
+# Create your views here.
+
+def search():
+	cuentas = Cuenta.objects.all()	
+	return cuentas

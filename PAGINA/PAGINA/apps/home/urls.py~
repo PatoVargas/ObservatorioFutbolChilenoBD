@@ -1,0 +1,6 @@
+from django.conf.urls import patterns,url
+
+urlpatterns = patterns('PAGINA.apps.home.views',
+	url(r'^$','index_views',name='vista_principal'),
+
+)

@@ -1,0 +1,25 @@
+<html>
+<head><title>Pestaña de Cuentas</title></head>
+<body><h1>Estas son las cuentas asociadas a tweeter</h1>
+
+{% if cuentas %}
+	<h2>Cuentas de Usuarios normales </h2>	
+	{% for p in cuentas %}
+		<p>{{p.nombre_cuenta}}</p>
+	{% endfor %}
+
+	<h2>Cuentas de Usuarios futbolistas </h2>	
+	{% for p in cuentas2 %}
+		<p>{{p.nombre_cuenta}}</p>
+	{% endfor %}
+
+{% else %}
+	<h3>No hay cuentas asociadas </h3>
+
+{% endif %}
+
+
+
+
+</body>
+</html>

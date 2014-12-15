@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block title %} DETALLES de {{cuenta.nombre_cuenta}} {% endblock %}
+{% block content %} <br>
+
+<h1> La Cuenta: </h1>
+<p>{{ cuenta.nombre_cuenta }}</p>
+
+Tiene:<br><br>
+
+Seguidores: {{ cuenta.Seguidores }} <br> 
+Siguiendo: {{ cuenta.Siguiendo }} <br> 
+Numero de Tweets: {{ cuenta.numero_Tweets }}
+<br><br>
+
+<a href='/about'> Volver </a>
+
+{% endblock %}
